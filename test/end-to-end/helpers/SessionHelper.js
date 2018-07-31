@@ -23,6 +23,7 @@ class SessionHelper extends codecept_helper {
         .proxy(proxyUrl)
         .end((response) => {
           logger.info('### SESSION GET: done');
+          logger.debug('### SESSION RESPONSE:', response);
           logger.debug('### SESSION GET:', response.body);
           resolve(response.body);
         });
@@ -64,7 +65,9 @@ class SessionHelper extends codecept_helper {
   async assertSessionEqualsMockTestData() {
     const helper = this.helpers['WebDriverIO'] || this.helpers['Puppeteer'];
     const connectSidCookie = await helper.grabCookie('connect.sid');
+    logger.info(`### Connect ID is: ${connectSidCookie}`);
     const authTokenCookie = await helper.grabCookie('__auth-token');
+    logger.info(`### Auth token is: ${authTokenCookie}`);
     const session = await this.getTheSession(connectSidCookie, authTokenCookie);
 
     let expectedSession = this.updateExpectedSessionWithActualSession(basicDivorceSessionData, session);
