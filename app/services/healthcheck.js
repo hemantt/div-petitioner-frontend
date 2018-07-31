@@ -92,17 +92,17 @@ router.get('/health', healthcheck.configure({
         return !error && res.status === OK ? outputs.up() : outputs.down(error);
       }
     }, options),
-    'payment-api': healthcheck.web(config.services.payment.health, {
-      callback: (error, res) => { // eslint-disable-line id-blacklist
-        if (error) {
-          logger.error({
-            message: 'Health check failed on payment-api:',
-            error
-          });
-        }
-        return !error && res.status === OK ? outputs.up() : outputs.down(error);
-      }
-    }, options),
+//     'payment-api': healthcheck.web(config.services.payment.health, {
+//       callback: (error, res) => { // eslint-disable-line id-blacklist
+//         if (error) {
+//           logger.error({
+//             message: 'Health check failed on payment-api:',
+//             error
+//           });
+//         }
+//         return !error && res.status === OK ? outputs.up() : outputs.down(error);
+//       }
+//     }, options),
     feesAndPayments: healthcheck.web(config.services.feesAndPayments.health, {
       callback: (error, res) => { // eslint-disable-line id-blacklist
         if (error) {
