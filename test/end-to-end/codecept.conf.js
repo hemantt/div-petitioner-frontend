@@ -69,7 +69,7 @@ function configureChunks() {
   if (CONF.preview_env === 'true') {
     return 2;
   } else {
-    return 5;
+    return 1;
   }
 }
 
@@ -80,6 +80,6 @@ function getTests() {
   if (CONF.preview_env === 'true') {
     return './paths/**/basicDivorce.js';
   } else {
-    return './paths/**/*.js';
+    return './paths/**/basicDivorce.js';
   }
 }
