@@ -80,6 +80,6 @@ function getTests() {
   if (CONF.preview_env === 'true') {
     return './paths/**/basicDivorce.js';
   } else {
-    return './paths/**/basicDivorce.js';
+    return './smoke/*.js';
   }
 }
