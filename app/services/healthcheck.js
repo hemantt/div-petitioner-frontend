@@ -37,17 +37,6 @@ router.get('/health', healthcheck.configure({
           });
         });
     }),
-    'idam-authentication': healthcheck.web(config.services.idamAuthentication.health, {
-      callback: (error, res) => { // eslint-disable-line id-blacklist
-        if (error) {
-          logger.error({
-            message: 'Health check failed on idam-authentication:',
-            error
-          });
-        }
-        return !error && res.status === OK ? outputs.up() : outputs.down(error);
-      }
-    }, options),
     'idam-app': healthcheck.web(config.services.idamApp.health, {
       callback: (error, res) => { // eslint-disable-line id-blacklist
         if (error) {
