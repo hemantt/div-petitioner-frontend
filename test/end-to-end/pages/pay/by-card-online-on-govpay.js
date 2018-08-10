@@ -55,7 +55,8 @@ function cancelOnGovPay() {
 function onGovPay(I) {
   I.wait(3);
   I.waitForText('Enter card details', 20);
-  I.seeInCurrentUrl('www.payments.service.gov.uk/card_details');
+  // Do not wait for #content as this is an external site
+  I.seeInCurrentUrl('www.payments.service.gov.uk/card_details', true);
   I.see('£550.00');
 }
 
