@@ -95,6 +95,7 @@ module "frontend" {
     IDAM_LOGIN_URL                     = "${var.idam_authentication_web_url}${var.idam_authentication_login_endpoint}"
     IDAM_AUTHENTICATION_HEALHCHECK_URL = "${var.idam_authentication_web_url}${var.health_endpoint}"
     IDAM_SECRET                        = "${data.vault_generic_secret.idam_secret.data["value"]}"
+    IDAM_CLIENT_ID                     = "${var.idam_client_id}"
 
     // Service Auth
     SERVICE_AUTH_PROVIDER_URL             = "${local.service_auth_provider_url}"
