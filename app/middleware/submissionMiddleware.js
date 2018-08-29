@@ -3,11 +3,15 @@ const parseBool = require('app/core/utils/parseBool');
 
 const APPLICATION_SUBMITTED_PATH = '/application-submitted';
 const APPLICATION_AWAITING_RESPONSE_PATH = '/application-submitted-awaiting-response';
+const DS_SERVICE_NOTIFICATION_PATH = '/ds-service-notification';
 
 const hasSubmitted = function(req, res, next) {
   const session = req.session;
 
   const hasSubmittedEnabled = ['prod'].includes(config.deployment_env);
+
+  // modify here to handle when error thrown
+    // return res.redirect(DS_SERVICE_NOTIFICATION_PATH);
 
   // when an existing case is found and we have the state
   if (hasSubmittedEnabled && session.caseId && session.state) { // eslint-disable-line

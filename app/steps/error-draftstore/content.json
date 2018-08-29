@@ -1,0 +1,18 @@
+{
+    "lng": "en",
+    "resources": {
+        "en": {
+            "translation": {
+                "content": {
+                    "title": "Sorry, there's been a problem with this service",
+                    "info": "We're working on fixing the problem. Please try again later.",
+                    "info2": "If you've started an application then your information has been saved in your account.",
+                    "info3": "You can contact us if you need help with your divorce application.",
+                    "contactTitle": "Contact Us",
+                    "contactPhone": "Phone: {{courtPhoneNumber}} ({{courtOpeningHour}})",
+                    "contactEmail": "Email: {{courtEmail}}"
+                }
+            }
+        }
+    }
+}
